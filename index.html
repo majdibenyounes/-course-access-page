@@ -1,256 +1,532 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Access Instructions — ICM Group</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #071D33;
+    --orange:  #F5460F;
+    --white:   #FFFFFF;
+    --navy-80: rgba(7,29,51,0.08);
+    --navy-10: rgba(7,29,51,0.04);
+    --orange-light: rgba(245,70,15,0.08);
+    --text-secondary: #5a6a7a;
+    --border: rgba(7,29,51,0.10);
+    --success-bg: #edf7f1;
+    --success: #1a7a45;
+    --success-border: #a3d9b8;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  html { font-size: 16px; }
+
   body {
-    font-family: Arial, sans-serif;
-    max-width: 720px;
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f8fa;
+    color: var(--navy);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 40px solid rgba(245,70,15,0.15);
+    pointer-events: none;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    right: 60px; bottom: -80px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 30px solid rgba(245,70,15,0.08);
+    pointer-events: none;
+  }
+  .header img { height: 38px; position: relative; z-index: 1; }
+  .header-badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    position: relative; z-index: 1;
+  }
+
+  /* ── HERO BANNER ── */
+  .hero {
+    background: linear-gradient(135deg, #0d2d4e 0%, #071D33 60%);
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--orange);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    left: -30px; top: -30px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 25px solid rgba(245,70,15,0.10);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(245,70,15,0.12);
+    border: 1px solid rgba(245,70,15,0.25);
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .hero-tag::before { content: '●'; font-size: 7px; }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative; z-index: 1;
+  }
+  .hero p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    max-width: 560px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 760px;
     margin: 0 auto;
-    padding: 24px 16px;
-    color: #1a1a1a;
+    padding: 36px 32px 48px;
+  }
+
+  /* ── PURCHASE CONFIRMED CARD ── */
+  .confirmed-card {
+    background: var(--white);
+    border: 1px solid var(--success-border);
+    border-left: 4px solid var(--success);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 36px;
+    box-shadow: 0 2px 12px rgba(7,29,51,0.05);
+  }
+  .check-icon {
+    width: 36px; height: 36px;
+    background: var(--success-bg);
+    border: 1.5px solid var(--success-border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+    color: var(--success);
+  }
+  .confirmed-card-body strong {
+    display: block;
     font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .confirmed-card-body p {
+    font-size: 13px;
+    color: var(--text-secondary);
     line-height: 1.6;
   }
-
-  .banner {
-    background-color: #eaf4ff;
-    border: 1px solid #b6d9f7;
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin-bottom: 28px;
-    color: #0d4f8b;
-    font-size: 14px;
-  }
-
-  .banner strong {
-    display: block;
-    margin-bottom: 4px;
-    font-size: 15px;
-  }
-
-  .steps-label {
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: #888;
-    margin-bottom: 20px;
-  }
-
-  .step {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 8px;
-    align-items: flex-start;
-  }
-
-  .step-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-  }
-
-  .step-num {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: bold;
-    color: #444;
-    flex-shrink: 0;
-  }
-
-  .step-num.done {
-    background-color: #e6f7ee;
-    border-color: #a3d9b8;
-    color: #1a7a45;
-    font-size: 16px;
-  }
-
-  .connector {
-    width: 1px;
-    height: 20px;
-    background-color: #ddd;
-    margin: 4px 0;
-  }
-
-  .step-body {
-    flex: 1;
-    padding-bottom: 12px;
-  }
-
-  .step-title {
-    font-size: 15px;
-    font-weight: bold;
-    color: #1a1a1a;
-    margin: 4px 0 4px;
-  }
-
-  .step-desc {
-    font-size: 13px;
-    color: #555;
-    margin: 0 0 10px;
-  }
-
   .badge-done {
     display: inline-block;
-    font-size: 11px;
-    font-weight: bold;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
     padding: 2px 8px;
     border-radius: 20px;
-    background-color: #e6f7ee;
-    color: #1a7a45;
-    border: 1px solid #a3d9b8;
+    background: var(--success-bg);
+    color: var(--success);
+    border: 1px solid var(--success-border);
     margin-left: 8px;
     vertical-align: middle;
   }
 
-  .btn {
-    display: inline-block;
-    padding: 9px 18px;
-    border-radius: 6px;
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── STEPS ── */
+  .steps { display: flex; flex-direction: column; }
+
+  .step-row {
+    display: flex;
+    gap: 0;
+    position: relative;
+  }
+
+  /* left column: number + line */
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 52px;
+    flex-shrink: 0;
+  }
+
+  .step-num {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(7,29,51,0.06);
+    position: relative; z-index: 1;
+    transition: all 0.2s;
+  }
+  .step-num.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+    box-shadow: 0 4px 14px rgba(7,29,51,0.25);
+  }
+  .step-num.done {
+    background: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--success);
+    font-size: 17px;
+  }
+
+  .step-line {
+    width: 2px;
+    flex: 1;
+    background: var(--border);
+    min-height: 24px;
+    margin: 4px 0;
+  }
+  .step-line.done-line { background: var(--success-border); }
+
+  /* right column: card */
+  .step-card {
+    flex: 1;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    margin-left: 14px;
+    box-shadow: 0 2px 10px rgba(7,29,51,0.04);
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .step-card.active {
+    border-color: rgba(7,29,51,0.18);
+    box-shadow: 0 4px 20px rgba(7,29,51,0.09);
+  }
+  .step-card.muted { opacity: 0.55; }
+
+  .step-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .step-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .step-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .step-card p:last-child { margin-bottom: 0; }
+
+  /* note pill */
+  .note-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #7a6000;
+    background: #fffbea;
+    border: 1px solid #f0e080;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-top: 4px;
+  }
+
+  /* lock pill */
+  .lock-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: var(--navy-10);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-top: 4px;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
     text-decoration: none;
     cursor: pointer;
+    border: none;
+    transition: all 0.18s ease;
   }
-
   .btn-primary {
-    background-color: #0d6efd;
-    color: #ffffff;
-    border: none;
+    background: var(--orange);
+    color: var(--white);
+    box-shadow: 0 3px 12px rgba(245,70,15,0.30);
   }
-
   .btn-primary:hover {
-    background-color: #0b5ed7;
+    background: #d93c0a;
+    box-shadow: 0 5px 18px rgba(245,70,15,0.40);
+    transform: translateY(-1px);
   }
-
-  .btn-secondary {
-    background-color: #f5f5f5;
-    color: #333;
-    border: 1px solid #ccc;
+  .btn-outline {
+    background: var(--white);
+    color: var(--navy);
+    border: 1.5px solid var(--border);
+    box-shadow: 0 2px 6px rgba(7,29,51,0.06);
   }
-
-  .btn-secondary:hover {
-    background-color: #e8e8e8;
+  .btn-outline:hover {
+    border-color: rgba(7,29,51,0.25);
+    box-shadow: 0 3px 12px rgba(7,29,51,0.10);
+    transform: translateY(-1px);
   }
+  .btn svg { width: 15px; height: 15px; }
 
-  .btn-disabled {
-    background-color: #f5f5f5;
-    color: #aaa;
-    border: 1px solid #ddd;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  .btn-note {
-    font-size: 11px;
-    color: #999;
-    margin-top: 6px;
-  }
-
-  .divider {
+  /* ── DIVIDER ── */
+  hr.divider {
     border: none;
-    border-top: 1px solid #eee;
-    margin: 28px 0 20px;
+    border-top: 1px solid var(--border);
+    margin: 36px 0 24px;
   }
 
-  .support-line {
+  /* ── FOOTER ── */
+  .footer-support {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-size: 13px;
-    color: #666;
+    color: var(--text-secondary);
   }
-
-  .support-line a {
-    color: #0d6efd;
+  .footer-support a {
+    color: var(--orange);
     text-decoration: none;
+    font-weight: 500;
+  }
+  .footer-support a:hover { text-decoration: underline; }
+  .footer-support-icon {
+    width: 34px; height: 34px;
+    background: var(--orange-light);
+    border: 1px solid rgba(245,70,15,0.18);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 15px;
   }
 
-  .support-line a:hover {
-    text-decoration: underline;
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .confirmed-card { animation: fadeUp 0.4s ease both; }
+  .step-row:nth-child(1) .step-card { animation: fadeUp 0.4s 0.1s ease both; }
+  .step-row:nth-child(2) .step-card { animation: fadeUp 0.4s 0.18s ease both; }
+  .step-row:nth-child(3) .step-card { animation: fadeUp 0.4s 0.26s ease both; }
+  .step-row:nth-child(4) .step-card { animation: fadeUp 0.4s 0.34s ease both; }
+  .step-row:nth-child(5) .step-card { animation: fadeUp 0.4s 0.42s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .header { padding: 16px 20px; }
+    .hero { padding: 28px 20px 24px; }
+    .hero h1 { font-size: 22px; }
+    .main { padding: 24px 16px 40px; }
+    .step-card { padding: 16px 16px; }
   }
 </style>
 </head>
 <body>
 
-  <div class="banner">
-    <strong>&#10003; Purchase confirmed — here's how to get started</strong>
-    Follow the steps below to receive your login credentials and access the course. The process takes about 5–10 minutes and credentials are issued within 1 business day.
-  </div>
+<!-- HEADER -->
+<div class="header">
+  <img src="https://icmpeople.com/wp-content/uploads/2023/05/ICM_nobox_whiteD.png" alt="ICM Group" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+  <span style="display:none; color:white; font-family:'DM Serif Display',serif; font-size:20px; font-weight:bold; letter-spacing:0.05em;">ICM GROUP</span>
+  <span class="header-badge">Learning Portal</span>
+</div>
 
-  <p class="steps-label">How to access your course</p>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Purchase Confirmed</div>
+  <h1>Crisis Management and Human Behavior<br>— Liberia</h1>
+  <p>Follow the steps below to receive your access credentials and begin your course. The full process takes approximately 5–10 minutes and credentials are issued within 1 business day.</p>
+</div>
 
-  <!-- Step 1 -->
-  <div class="step">
-    <div class="step-left">
-      <div class="step-num done">&#10003;</div>
-      <div class="connector"></div>
-    </div>
-    <div class="step-body">
-      <p class="step-title">Purchase complete <span class="badge-done">Done</span></p>
-      <p class="step-desc">Your payment has been confirmed and your enrollment is registered in our system.</p>
-    </div>
-  </div>
+<!-- MAIN CONTENT -->
+<div class="main">
 
-  <!-- Step 2 -->
-  <div class="step">
-    <div class="step-left">
-      <div class="step-num">2</div>
-      <div class="connector"></div>
-    </div>
-    <div class="step-body">
-      <p class="step-title">Submit your registration form</p>
-      <p class="step-desc">Fill in your details so the course provider can set up your account. This takes about 2 minutes to complete.</p>
-      <a href="REGISTRATION_FORM_URL" target="_blank" class="btn btn-primary">Open registration form &rarr;</a>
+  <!-- Confirmed card -->
+  <div class="confirmed-card">
+    <div class="check-icon">✓</div>
+    <div class="confirmed-card-body">
+      <strong>Payment confirmed &amp; enrollment registered <span class="badge-done">Done</span></strong>
+      <p>Your purchase has been processed. You are now enrolled in this course. Complete the steps below to receive your login credentials.</p>
     </div>
   </div>
 
-  <!-- Step 3 -->
-  <div class="step">
-    <div class="step-left">
-      <div class="step-num">3</div>
-      <div class="connector"></div>
-    </div>
-    <div class="step-body">
-      <p class="step-title">Verify your identity</p>
-      <p class="step-desc">Complete a short ID verification required for oil &amp; gas compliance certification. Have a government-issued ID ready before you begin.</p>
-      <a href="ID_VERIFICATION_URL" target="_blank" class="btn btn-secondary">Start ID verification &rarr;</a>
-    </div>
-  </div>
+  <p class="section-label">Steps to access your course</p>
 
-  <!-- Step 4 -->
-  <div class="step">
-    <div class="step-left">
-      <div class="step-num">4</div>
-      <div class="connector"></div>
-    </div>
-    <div class="step-body">
-      <p class="step-title">Receive your access credentials</p>
-      <p class="step-desc">Once your ID is verified (within 1 business day), the course provider will send you an email with your username, password, and a link to the learning portal. Check your spam folder if you don't see it.</p>
-    </div>
-  </div>
+  <div class="steps">
 
-  <!-- Step 5 -->
-  <div class="step">
-    <div class="step-left">
-      <div class="step-num">5</div>
+    <!-- Step 1: Done -->
+    <div class="step-row">
+      <div class="step-left">
+        <div class="step-num done">✓</div>
+        <div class="step-line done-line"></div>
+      </div>
+      <div class="step-card">
+        <div class="step-card-header">
+          <h3>Purchase complete</h3>
+          <span class="badge-done">Done</span>
+        </div>
+        <p>Your payment has been confirmed and your enrollment is registered in our system. No further action needed for this step.</p>
+      </div>
     </div>
-    <div class="step-body">
-      <p class="step-title">Access the learning portal</p>
-      <p class="step-desc">Use the credentials from your email to log in and start your course.</p>
-      <span class="btn btn-disabled">Go to learning portal &rarr;</span>
-      <p class="btn-note">&#128274; Link available after your credentials are emailed to you.</p>
+
+    <!-- Step 2: Active -->
+    <div class="step-row">
+      <div class="step-left">
+        <div class="step-num active">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-card active">
+        <h3>Submit your registration form</h3>
+        <p>Provide your details so the course provider can set up your account. This takes approximately 2 minutes to complete. Make sure you use the same email address you registered with on this platform.</p>
+        <a href="REGISTRATION_FORM_URL" target="_blank" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 3h7v7M10 14L21 3M19 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6"/></svg>
+          Open registration form
+        </a>
+      </div>
     </div>
-  </div>
+
+    <!-- Step 3 -->
+    <div class="step-row">
+      <div class="step-left">
+        <div class="step-num">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-card">
+        <h3>Complete identity verification</h3>
+        <p>A short ID verification is required for oil &amp; gas compliance certification. Please have a government-issued photo ID ready before you begin. The process takes approximately 3–5 minutes.</p>
+        <a href="ID_VERIFICATION_URL" target="_blank" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 10a2 2 0 11-4 0 2 2 0 014 0zM6 10h2M6 14h8"/></svg>
+          Start ID verification
+        </a>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-row">
+      <div class="step-left">
+        <div class="step-num">4</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-card">
+        <h3>Receive your access credentials</h3>
+        <p>Once your identity has been verified, the course provider will email you your login credentials and a direct link to the learning portal. This typically takes <strong>up to 1 business day</strong>.</p>
+        <div class="note-pill">
+          ⏳&nbsp; Check your inbox — and your spam folder — for an email from the course provider.
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Locked -->
+    <div class="step-row">
+      <div class="step-left">
+        <div class="step-num" style="font-size:16px;">5</div>
+      </div>
+      <div class="step-card muted">
+        <h3>Access the learning portal</h3>
+        <p>Once you have received your credentials by email, click <strong>"Mark as Complete"</strong> below to unlock the portal and begin your course.</p>
+        <div class="lock-pill">
+          🔒&nbsp; Available after credentials are received and this unit is marked complete.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /steps -->
 
   <hr class="divider">
 
-  <p class="support-line">&#128172; Need help? Visit our <a href="SUPPORT_PAGE_URL" target="_blank">support page</a>.</p>
+  <div class="footer-support">
+    <div class="footer-support-icon">💬</div>
+    <span>Need help? Visit our <a href="SUPPORT_PAGE_URL" target="_blank">support page</a> or contact your ICM Group administrator.</span>
+  </div>
+
+</div><!-- /main -->
 
 </body>
 </html>
