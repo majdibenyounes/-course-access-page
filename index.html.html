@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    color: #1a1a1a;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .banner {
+    background-color: #eaf4ff;
+    border: 1px solid #b6d9f7;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    color: #0d4f8b;
+    font-size: 14px;
+  }
+
+  .banner strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+
+  .steps-label {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 20px;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 8px;
+    align-items: flex-start;
+  }
+
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .step-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+    flex-shrink: 0;
+  }
+
+  .step-num.done {
+    background-color: #e6f7ee;
+    border-color: #a3d9b8;
+    color: #1a7a45;
+    font-size: 16px;
+  }
+
+  .connector {
+    width: 1px;
+    height: 20px;
+    background-color: #ddd;
+    margin: 4px 0;
+  }
+
+  .step-body {
+    flex: 1;
+    padding-bottom: 12px;
+  }
+
+  .step-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin: 4px 0 4px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: #555;
+    margin: 0 0 10px;
+  }
+
+  .badge-done {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background-color: #e6f7ee;
+    color: #1a7a45;
+    border: 1px solid #a3d9b8;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: #0d6efd;
+    color: #ffffff;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #0b5ed7;
+  }
+
+  .btn-secondary {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+
+  .btn-secondary:hover {
+    background-color: #e8e8e8;
+  }
+
+  .btn-disabled {
+    background-color: #f5f5f5;
+    color: #aaa;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .btn-note {
+    font-size: 11px;
+    color: #999;
+    margin-top: 6px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 28px 0 20px;
+  }
+
+  .support-line {
+    font-size: 13px;
+    color: #666;
+  }
+
+  .support-line a {
+    color: #0d6efd;
+    text-decoration: none;
+  }
+
+  .support-line a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+  <div class="banner">
+    <strong>&#10003; Purchase confirmed — here's how to get started</strong>
+    Follow the steps below to receive your login credentials and access the course. The process takes about 5–10 minutes and credentials are issued within 1 business day.
+  </div>
+
+  <p class="steps-label">How to access your course</p>
+
+  <!-- Step 1 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num done">&#10003;</div>
+      <div class="connector"></div>
+    </div>
+    <div class="step-body">
+      <p class="step-title">Purchase complete <span class="badge-done">Done</span></p>
+      <p class="step-desc">Your payment has been confirmed and your enrollment is registered in our system.</p>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">2</div>
+      <div class="connector"></div>
+    </div>
+    <div class="step-body">
+      <p class="step-title">Submit your registration form</p>
+      <p class="step-desc">Fill in your details so the course provider can set up your account. This takes about 2 minutes to complete.</p>
+      <a href="REGISTRATION_FORM_URL" target="_blank" class="btn btn-primary">Open registration form &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">3</div>
+      <div class="connector"></div>
+    </div>
+    <div class="step-body">
+      <p class="step-title">Verify your identity</p>
+      <p class="step-desc">Complete a short ID verification required for oil &amp; gas compliance certification. Have a government-issued ID ready before you begin.</p>
+      <a href="ID_VERIFICATION_URL" target="_blank" class="btn btn-secondary">Start ID verification &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">4</div>
+      <div class="connector"></div>
+    </div>
+    <div class="step-body">
+      <p class="step-title">Receive your access credentials</p>
+      <p class="step-desc">Once your ID is verified (within 1 business day), the course provider will send you an email with your username, password, and a link to the learning portal. Check your spam folder if you don't see it.</p>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="step">
+    <div class="step-left">
+      <div class="step-num">5</div>
+    </div>
+    <div class="step-body">
+      <p class="step-title">Access the learning portal</p>
+      <p class="step-desc">Use the credentials from your email to log in and start your course.</p>
+      <span class="btn btn-disabled">Go to learning portal &rarr;</span>
+      <p class="btn-note">&#128274; Link available after your credentials are emailed to you.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="support-line">&#128172; Need help? Visit our <a href="SUPPORT_PAGE_URL" target="_blank">support page</a>.</p>
+
+</body>
+</html>
